@@ -4,5 +4,5 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2504.10106-b31b1b.svg?style=for-the-badge)](https://arxiv.org/abs/2504.10106)
 
-![](figures/pipeline.gif)
+![Alt Text](https://imgur.com/a/Ex1OJuj)
 </div>
