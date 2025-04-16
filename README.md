@@ -10,6 +10,8 @@
 ## Contents
 - [Abstract](#abstract)
 - [Annotations](#annotations)
+- [Weights](#weights)
+- [Citation](#citation)
 
 
 ## Abstract
@@ -54,7 +56,7 @@ Calibration annotations for [SoccerNet-v3D](https://github.com/mguti97/SoccerNet
 ```
 Labels-v3D.json
   |-- GameMetadata
-  |      |-- reconstructions
+  |      |-- reconstructions # list of actions with more than 1 calibrated frames
   |-- actions
   |      |-- "0.png"
   |      |      |-- imageMetadata
@@ -105,7 +107,46 @@ Camera calibration parameters for the six cameras in the ISSIA-Soccer dataset ar
 
 **IMPORTANT:** Cameras 2 and 6 have their downloadable footage horizontally flipped. Calibration and player/ball annotation files are based on the original (unflipped) images. Please horizontally flip the images to match the original footage orientation.
 
+Annotations containing ball position information (both 2D and 3D) can be downloaded in [CSV](https://github.com/mguti97/SoccerNet-v3D/releases/download/v1.0.0/ISSIA-3D.csv) format, with the following columns:
+
+- `x_cam`: x-coordinate of the ball position in image space (pixels)  
+- `y_cam`: y-coordinate of the ball position in image space (pixels)  
+- `num_cameras`: number of cameras with a ball annotation in the same frame (*)
+- `ball_3D`: 3D ball position in meters (via triangulation) (*)
+- `err_cam`: 3D ball reprojection error in image space (pixels)  
+- `cam_list`: list of cameras used in the triangulation process (*)
+- `opt_d_cam`: optimized ball diameter in image space (pixels)  
+- `opt_e_cam`: projection error after bounding box optimization (meters)  
+
+**Note:** All six cameras are included in the CSV file. The specific camera index (from 1 to 6) is appended to each camera-related column name (e.g., `x_cam1`, `y_cam1`, `err_cam1`), except for the general columns (*).
+
+
+## Weights
+Download the ball object detector weights for the different configurations. Our models are pre-trained on the SoccerNet distribution and further fine-tuned on the SoccerNet and ISSIA datasets using optimized bounding boxes for enhanced performance.
+The model architecture and dependencies for YOLOv11 can be obtained from the [original source](https://github.com/ultralytics/ultralytics).
+
+| Trained | Finetuned | Link |
+| :-- | :-: | :-: |
+|SoccerNet-v3| X | [**yolo-sn-ball.pt**](https://github.com/mguti97/SoccerNet-v3D/releases/download/v1.0.0/yolo-sn-ball.pt) |
+|SoccerNet-v3| SoccerNet-v3D optimized boxes | [**yolo-sn-ball-opt.pt**](https://github.com/mguti97/SoccerNet-v3D/releases/download/v1.0.0/yolo-sn-ball-opt.pt)  |
+|SoccerNet-v3| ISSIA-v3D optimized boxes | [**yolo-issia-ball-opt.pt**](https://github.com/mguti97/SoccerNet-v3D/releases/download/v1.0.0/yolo-issia-ball-opt.pt)  |
+
+The list of images and annotations used in the train/val and test sets for the SoccerNet distribution can be found in the [`SNv3D-train.txt`](https://github.com/mguti97/SoccerNet-v3D/releases/download/v1.0.0/SNv3D-train.txt) and [`SNv3D-test.txt`](https://github.com/mguti97/SoccerNet-v3D/releases/download/v1.0.0/SNv3D-test.txt) files, respectively.
+
+For the ISSIA distribution, the train/val split was performed using frames from cameras 3 to 6, while the test set consists of frames from cameras 1 and 2.
 
 
 
+## Citation
+```shell
+@article{gutiérrezpérez2025soccernetv3dleveragingsportsbroadcast,
+        title={SoccerNet-v3D: Leveraging Sports Broadcast Replays for 3D Scene Understanding}, 
+        author={Marc Gutiérrez-Pérez and Antonio Agudo},
+        year={2025},
+        eprint={2504.10106},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2504.10106}, 
+}
+```
 
