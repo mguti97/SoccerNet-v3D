@@ -35,7 +35,7 @@ datasets establish new benchmarks for 3D soccer scene understanding,
 enhancing both spatial and temporal analysis
 in sports analytics.
 
-<p align="center"><img src=figures/Pipeline_r-1.png  width=90% height=90%></p>
+<p align="center"><img src=figures/pipeline-1.png  width=90% height=90%></p>
 <strong>SoccerNet-v3D dataset generation pipeline</strong>. A main camera frame is paired with its corresponding synchronized replay frames,
 where blue dots indicate the original SoccerNet-v3 [8] field-line annotations. The PnLCalib [15] calibration pipeline is used to recover
 camera parameters {K,R, t}. Calibration quality is assessed using JaCγ, with a threshold of JaC0.5% = 0.75 to determine whether
