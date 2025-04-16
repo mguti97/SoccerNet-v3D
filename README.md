@@ -45,3 +45,36 @@ consistency with the 3D scene, with the original SoccerNet-v3 and optimized boun
 
 
 ## Annotations
+SoccerNet-v3D and ISSIA-3D datasets are built as an extension of the original [SoccerNet-v3](https://github.com/SoccerNet/SoccerNet-v3) and [ISSIA-Soccer](https://pspagnolo.jimdofree.com/download/) datasets, respectively.
+
+Calibration annotations for [SoccerNet-v3D](https://github.com/mguti97/SoccerNet-v3D/releases/download/v1.0.0/SoccerNet-v3D.zip) follow the same folder structure as the original SoccerNet-v3. Therefore, folders can be merged so that each match contains a single generated <strong>Labels-v3D.json</strong> file. The calibration file is structured as follows (only generated information not included in the original SoccerNet-v3 annotations is displayed):
+
+```
+Labels-v3D.json
+  |-- GameMetadata
+  |      |-- reconstructions
+  |-- actions
+  |      |-- "0.png"
+  |      |      |-- imageMetadata
+  |      |      |      |-- calibrated_replays # i.e. ["0_0.png", "0_1.png"] calibrated replays associated with the action frame
+  |      |      |-- calibration # camera calibration parameters following SoccerNet-calibration format
+  |      |      |      |-- pan_degrees
+  |      |      |      |-- tilt_degrees
+  |      |      |      |-- roll_degrees
+  |      |      |      |-- x_focal_length
+  |      |      |      |-- y_focal_length
+  |      |      |      |-- principal_point
+  |      |      |      |-- position_meters
+  |      |      |      |-- rotation_matrix
+  |      |      |      |-- radial_distortion
+  |      |      |      |-- tangential_distortion
+  |      |      |      |-- thin_prism_distortion
+  |      |      |-- JaC # i.e. Jaccard index for the calibration given different thresholds
+  |      |      |      |-- JaC@0.005
+  |      |      |      |-- JaC@0.01
+  |      |      |      |-- JaC@0.02
+  |-- replays
+  |      |-- "0_0.png" #same strcuture as action frames
+```
+
+
