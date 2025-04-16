@@ -45,6 +45,9 @@ frames qualify as part of the multi-view system. Red lines represent the field p
 2D ball annotations are fused through triangulation to estimate 3D ball positions, while original bounding boxes are optimized to ensure
 consistency with the 3D scene, with the original SoccerNet-v3 and optimized bounding boxes represented in red and blue, respectively.
 
+## Upcoming Work
+- [ ] Data generation pipeline
+
 
 ## Annotations
 SoccerNet-v3D and ISSIA-3D datasets are built as an extension of the original [SoccerNet-v3](https://github.com/SoccerNet/SoccerNet-v3) and [ISSIA-Soccer](https://pspagnolo.jimdofree.com/download/) datasets, respectively.
