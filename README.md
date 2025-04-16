@@ -142,14 +142,13 @@ For the ISSIA distribution, the train/val split was performed using frames from 
 
 ## Citation
 ```shell
-@article{gutiérrezpérez2025soccernetv3dleveragingsportsbroadcast,
-        title={SoccerNet-v3D: Leveraging Sports Broadcast Replays for 3D Scene Understanding}, 
-        author={Marc Gutiérrez-Pérez and Antonio Agudo},
-        year={2025},
-        eprint={2504.10106},
-        archivePrefix={arXiv},
-        primaryClass={cs.CV},
-        url={https://arxiv.org/abs/2504.10106}, 
+@InProceedings{Gutierrez-Perez_2025_CVPR,
+    author    = {Guti\'errez-P\'erez, Marc and Agudo, Antonio},
+    title     = {SoccerNet-v3D: Leveraging Sports Broadcast Replays for 3D Scene Understanding},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month     = {June},
+    year      = {2025}
 }
 ```
+
 
