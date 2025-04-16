@@ -47,6 +47,8 @@ consistency with the 3D scene, with the original SoccerNet-v3 and optimized boun
 ## Annotations
 SoccerNet-v3D and ISSIA-3D datasets are built as an extension of the original [SoccerNet-v3](https://github.com/SoccerNet/SoccerNet-v3) and [ISSIA-Soccer](https://pspagnolo.jimdofree.com/download/) datasets, respectively.
 
+
+### SoccerNet-v3D
 Calibration annotations for [SoccerNet-v3D](https://github.com/mguti97/SoccerNet-v3D/releases/download/v1.0.0/SoccerNet-v3D.zip) follow the same folder structure as the original SoccerNet-v3. Therefore, folders can be merged so that each match contains a single generated <strong>Labels-v3D.json</strong> file. The calibration file is structured as follows (only generated information not included in the original SoccerNet-v3 annotations is displayed):
 
 ```
@@ -75,6 +77,35 @@ Labels-v3D.json
   |      |      |      |-- JaC@0.02
   |-- replays
   |      |-- "0_0.png" #same strcuture as action frames
+
 ```
+
+Annotations containing camera calibration and ball position information (both 2D and 3D) can be downloaded in [CSV](https://github.com/mguti97/SoccerNet-v3D/releases/download/v1.0.0/SNv3D.csv) format, with the following columns:
+- `league`: league name  
+- `season`: season year  
+- `match`: match identifier  
+- `main_action`: main-camera shot ID  
+- `action`: boolean flag indicating if the frame corresponds to a main-camera shot  
+- `replay`: replay number; NaN if it’s an action frame  
+- `img_w` / `img_h`: image width and height  
+- `is_ball`: boolean flag indicating if a ball annotation exists in the frame  
+- `ball_bbox`: ball bounding box; NaN if no ball annotation is present  
+- `calibration`: camera calibration dictionary in SoccerNet-calibration format  
+- `JaC@0.005`, `JaC@0.01`, `JaC@0.02`: Jaccard index at different thresholds  
+- `ball_3D`: 3D ball position in meters (via triangulation)  
+- `rep_error`: 3D ball reprojection error in image space (pixels)  
+- `optimized_error`: projection error after bounding box optimization (meters)  
+- `optimized_d`: optimized ball diameter in image space (pixels)  
+- `set`: `"train"` / `"test"` flag for ball detector training
+
+
+### ISSIA-3D
+
+Camera calibration parameters for the six cameras in the ISSIA-Soccer dataset are provided in the SoccerNet-calibration format and can be downloaded in [JSON](https://github.com/mguti97/SoccerNet-v3D/releases/download/v1.0.0/issia_calibration.json) format.
+
+**IMPORTANT:** Cameras 2 and 6 have their downloadable footage horizontally flipped. Calibration and player/ball annotation files are based on the original (unflipped) images. Please horizontally flip the images to match the original footage orientation.
+
+
+
 
 
