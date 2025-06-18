@@ -2,6 +2,7 @@
 <div align="center">
 
 [![arXiv](https://img.shields.io/badge/arXiv-2504.10106-b31b1b.svg?style=for-the-badge)](https://arxiv.org/abs/2504.10106)
+[![Conference](https://img.shields.io/badge/CVPRW-2025-6b8bc7.svg?style=for-the-badge)](https://openaccess.thecvf.com/content/CVPR2025W/CVSPORTS/papers/Gutierrez-Perez_SoccerNet-v3D_Leveraging_Sports_Broadcast_Replays_for_3D_Scene_Understanding_CVPRW_2025_paper.pdf)
 
 
 ![](/figures/pipeline.gif)
